@@ -1,0 +1,51 @@
+ECO-ALERT BRC
+│
+├── 📁 backend/
+│   ├── 📁 src/
+│   │   ├── 📁 config/           # Configuración (DB, JWT, Cloudinary, env)
+│   │   ├── 📁 modules/          # Módulos del dominio
+│   │   │   ├── 📁 auth/         # Login, registro, JWT, Google OAuth
+│   │   │   ├── 📁 reports/      # CRUD de reportes, imágenes, moderación
+│   │   │   ├── 📁 users/        # Perfiles, reputación, historial
+│   │   │   ├── 📁 map/          # Heatmaps, clustering geoespacial
+│   │   │   ├── 📁 notifications/# Push notifications con Web Push
+│   │   │   └── 📁 comments/     # Sistema de comentarios en reportes
+│   │   ├── 📁 shared/           # Código compartido
+│   │   │   ├── 📁 middleware/   # Auth, rate limiting, upload, errores
+│   │   │   ├── 📁 utils/        # ApiError, catchAsync, logger, response
+│   │   │   └── 📁 enums/        # Constantes del dominio
+│   │   ├── 📁 database/         # Migrations y seeds
+│   │   ├── app.js               # Configuración Express
+│   │   └── server.js            # Bootstrap del servidor
+│   ├── Dockerfile
+│   └── package.json
+│
+├── 📁 frontend/
+│   ├── 📁 public/
+│   │   ├── sw.js                # Service Worker (PWA, offline, push)
+│   │   └── manifest.json        # Manifest de la PWA
+│   ├── 📁 src/
+│   │   ├── 📁 api/              # Axios config y endpoints
+│   │   ├── 📁 components/       # Componentes UI atómicos
+│   │   │   ├── 📁 ui/           # Button, Input, Card, Modal, etc.
+│   │   │   ├── 📁 layout/       # Navbar, Footer, Layout
+│   │   │   └── 📁 map/          # MapContainer, MapMarker, etc.
+│   │   ├── 📁 features/         # Módulos funcionales
+│   │   │   ├── 📁 auth/         # LoginForm, RegisterForm, ProfileCard
+│   │   │   ├── 📁 reports/      # ReportForm, ReportCard, ReportList
+│   │   │   ├── 📁 map/          # InteractiveMap, MapControls, MapFilters
+│   │   │   ├── 📁 dashboard/    # StatsCards, RecentReports, ReputationBadge
+│   │   │   └── 📁 comments/     # CommentList
+│   │   ├── 📁 pages/            # Rutas de la aplicación
+│   │   ├── 📁 hooks/            # useLocalStorage, useDebounce, useOnlineStatus
+│   │   ├── 📁 utils/            # constants, formatters, validators, geolocation
+│   │   ├── 📁 stores/           # Zustand stores (auth, report, ui)
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── Dockerfile
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   └── package.json
+│
+├── docker-compose.yml
+└── README.md
