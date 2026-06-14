@@ -90,8 +90,21 @@ export const ReportsService = {
     );
 
     return reports.map((r) => ({
-      ...r,
+      id: r.id,
+      title: r.description?.substring(0, 60) || 'Sin título',  // El frontend usa 'title', tu DB tiene 'description'
+      description: r.description,
+      category: r.category,
+      alert_level: r.alert_level,
+      status: r.status,
+      lat: parseFloat(r.latitude),     // ← El frontend espera 'lat'
+      lng: parseFloat(r.longitude),     // ← El frontend espera 'lng'
       distance_km: parseFloat(r.distance_km).toFixed(2),
+      createdAt: r.created_at,
+      updatedAt: r.updated_at,
+      author: r.reporter_name,
+      imageUrl: r.image_url,
+      // Campos extra que el frontend usa
+      location: { lat: parseFloat(r.latitude), lng: parseFloat(r.longitude) }, // Compatibilidad
     }));
   },
 

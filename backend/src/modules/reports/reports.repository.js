@@ -50,11 +50,12 @@ export const ReportsRepository = {
         ) / 1000 as distance_km
       FROM reports r
       JOIN users u ON r.user_id = u.id
-      WHERE ST_DWithin(
-        r.location::geography,
-        ST_SetSRID(ST_MakePoint($2, $1), 4326)::geography,
-        $3
-      )
+      WHERE r.status = 'approved'          -- ← SOLO REPORTES APROBADOS
+        AND ST_DWithin(
+          r.location::geography,
+          ST_SetSRID(ST_MakePoint($2, $1), 4326)::geography,
+          $3
+        )
     `;
     
     const params = [latitude, longitude, radiusKm * 1000];
