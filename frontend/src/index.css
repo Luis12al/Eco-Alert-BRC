@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-eco-500 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-eco-600;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-eco-700 text-white rounded-xl font-semibold
+           hover:bg-eco-800 active:bg-eco-900
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-all duration-200 shadow-soft hover:shadow-glow
+           flex items-center justify-center gap-2;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-gray-700 border-2 border-gray-200 rounded-xl font-semibold
+           hover:border-eco-500 hover:text-eco-700
+           active:bg-gray-50
+           transition-all duration-200
+           flex items-center justify-center gap-2;
+  }
+  
+  .btn-ghost {
+    @apply px-4 py-2 text-gray-600 rounded-lg font-medium
+           hover:bg-gray-100 hover:text-gray-900
+           transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-xl
+           focus:outline-none focus:ring-2 focus:ring-eco-500 focus:border-transparent
+           placeholder-gray-400 transition-all duration-200
+           bg-white;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-soft border border-gray-100 p-6
+           transition-all duration-300 hover:shadow-card hover:-translate-y-1;
+  }
+
+  .card-premium {
+    @apply bg-white rounded-3xl shadow-card border border-gray-100 overflow-hidden
+           transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-alert { @apply badge bg-alert-50 text-alert-600 border border-alert-200; }
+  .badge-warning { @apply badge bg-warning-50 text-warning-600 border border-warning-200; }
+  .badge-safe { @apply badge bg-eco-50 text-eco-700 border border-eco-200; }
+  .badge-info { @apply badge bg-water-50 text-water-600 border border-water-200; }
+
+  .map-container {
+    @apply relative bg-white rounded-3xl shadow-card border border-gray-100 overflow-hidden;
+  }
+
+  .map-frame {
+    @apply w-full h-[500px] rounded-b-3xl;
+  }
+}
+
+.leaflet-container {
+  @apply rounded-b-3xl;
+  z-index: 1;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply rounded-xl shadow-xl !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 16px !important;
+  font-family: 'Inter', sans-serif !important;
+}
